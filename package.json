@@ -8,6 +8,7 @@
     "start": "node src/index.js",
     "runway": "node src/Tests/TestQueue/testQueueRunway.js",
     "pizza": "node src/Tests/TestStack/pizzaStack.js",
+    "nyc": "node src/Tests/TestDoublyLinkedList/locationsNyc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
