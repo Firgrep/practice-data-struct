@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
+    "runway": "node src/Tests/TestQueue/testQueueRunway.js",
+    "pizza": "node src/Tests/TestStack/pizzaStack.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
