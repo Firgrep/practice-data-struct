@@ -1,14 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node_1 = require("../Node/Node");
-var DoublyLinkedList = /** @class */ (function () {
-    function DoublyLinkedList() {
+const Node_1 = __importDefault(require("../Node/Node"));
+class DoublyLinkedList {
+    constructor() {
         this.head = null;
         this.tail = null;
     }
-    DoublyLinkedList.prototype.addToHead = function (data) {
-        var newHead = new Node_1.default(data);
-        var currentHead = this.head;
+    addToHead(data) {
+        const newHead = new Node_1.default(data);
+        const currentHead = this.head;
         if (currentHead) {
             currentHead.setPreviousNode(newHead);
             newHead.setNextNode(currentHead);
@@ -17,10 +20,10 @@ var DoublyLinkedList = /** @class */ (function () {
         if (!this.tail) {
             this.tail = newHead;
         }
-    };
-    DoublyLinkedList.prototype.addToTail = function (data) {
-        var newTail = new Node_1.default(data);
-        var currentTail = this.tail;
+    }
+    addToTail(data) {
+        const newTail = new Node_1.default(data);
+        const currentTail = this.tail;
         if (currentTail) {
             currentTail.setNextNode(newTail);
             newTail.setPreviousNode(currentTail);
@@ -29,9 +32,9 @@ var DoublyLinkedList = /** @class */ (function () {
         if (!this.head) {
             this.head = newTail;
         }
-    };
-    DoublyLinkedList.prototype.removeHead = function () {
-        var removedHead = this.head;
+    }
+    removeHead() {
+        const removedHead = this.head;
         if (!removedHead) {
             return;
         }
@@ -43,9 +46,9 @@ var DoublyLinkedList = /** @class */ (function () {
             this.removeTail();
         }
         return removedHead.data;
-    };
-    DoublyLinkedList.prototype.removeTail = function () {
-        var removedTail = this.tail;
+    }
+    removeTail() {
+        const removedTail = this.tail;
         if (!removedTail) {
             return;
         }
@@ -57,10 +60,10 @@ var DoublyLinkedList = /** @class */ (function () {
             this.removeHead();
         }
         return removedTail.data;
-    };
-    DoublyLinkedList.prototype.removeByData = function (data) {
-        var nodeToRemove;
-        var currentNode = this.head;
+    }
+    removeByData(data) {
+        let nodeToRemove;
+        let currentNode = this.head;
         while (currentNode !== null) {
             if (currentNode.data === data) {
                 nodeToRemove = currentNode;
@@ -78,23 +81,43 @@ var DoublyLinkedList = /** @class */ (function () {
             this.removeTail();
         }
         else {
-            var nextNode = nodeToRemove.getNextNode();
-            var previousNode = nodeToRemove.getPreviousNode();
-            nextNode.setPreviousNode(previousNode);
-            previousNode.setNextNode(nextNode);
+            const nextNode = nodeToRemove.getNextNode();
+            const previousNode = nodeToRemove.getPreviousNode();
+            nextNode === null || nextNode === void 0 ? void 0 : nextNode.setPreviousNode(previousNode);
+            previousNode === null || previousNode === void 0 ? void 0 : previousNode.setNextNode(nextNode);
         }
         return nodeToRemove;
-    };
-    DoublyLinkedList.prototype.printList = function () {
-        var currentNode = this.head;
-        var output = '<head> ';
+    }
+    printList() {
+        let currentNode = this.head;
+        let output = '<head> ';
         while (currentNode !== null) {
             output += currentNode.data + ' ';
             currentNode = currentNode.getNextNode();
         }
         output += '<tail>';
         console.log(output);
-    };
-    return DoublyLinkedList;
-}());
+    }
+    findNodeIteratively(data) {
+        let currentNode = this.head;
+        while (currentNode !== null) {
+            if (currentNode.data === data) {
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+        return null;
+    }
+    findNodeRecursively(data, currentNode = this.head) {
+        if (currentNode === null) {
+            return null;
+        }
+        else if (currentNode.data === data) {
+            return currentNode;
+        }
+        else {
+            return this.findNodeRecursively(data, currentNode.next);
+        }
+    }
+}
 exports.default = DoublyLinkedList;

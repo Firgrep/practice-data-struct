@@ -1,26 +1,29 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node_1 = require("../Node/Node");
-var SinglyLinkedList = /** @class */ (function () {
-    function SinglyLinkedList() {
+const Node_1 = __importDefault(require("../Node/Node"));
+class SinglyLinkedList {
+    constructor() {
         this.head = null;
     }
-    SinglyLinkedList.prototype.addToHead = function (data) {
-        var newHead = new Node_1.default(data);
-        var currentHead = this.head;
+    addToHead(data) {
+        const newHead = new Node_1.default(data);
+        const currentHead = this.head;
         this.head = newHead;
         if (currentHead) {
             this.head.setNextNode(currentHead);
         }
-    };
-    SinglyLinkedList.prototype.addToTail = function (data) {
-        var newNode = new Node_1.default(data);
+    }
+    addToTail(data) {
+        const newNode = new Node_1.default(data);
         if (!this.head) {
             this.head = newNode;
             return;
         }
-        var tail = null;
-        var current = this.head;
+        let tail = null;
+        let current = this.head;
         while (current) {
             tail = current;
             current = current.getNextNode();
@@ -28,34 +31,24 @@ var SinglyLinkedList = /** @class */ (function () {
         if (tail) {
             tail.setNextNode(newNode);
         }
-        // let tail = this.head;
-        // if (!tail) {
-        //     this.head = new Node(data);
-        // } else {
-        //     while (tail.getNextNode() !== null) {
-        //         tail = tail.getNextNode();
-        //     }
-        // tail.setNextNode(new Node(data));
-        // }
-    };
-    SinglyLinkedList.prototype.removeHead = function () {
-        var removedHead = this.head;
+    }
+    removeHead() {
+        const removedHead = this.head;
         if (!removedHead) {
             return;
         }
         this.head = removedHead.getNextNode();
         return removedHead.data;
-    };
-    SinglyLinkedList.prototype.printList = function () {
-        var currentNode = this.head;
-        var output = '<head> ';
+    }
+    printList() {
+        let currentNode = this.head;
+        let output = '<head> ';
         while (currentNode !== null) {
             output += currentNode.data + ' ';
             currentNode = currentNode.getNextNode();
         }
         output += '<tail>';
         console.log(output);
-    };
-    return SinglyLinkedList;
-}());
+    }
+}
 exports.default = SinglyLinkedList;

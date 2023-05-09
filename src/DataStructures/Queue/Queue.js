@@ -1,20 +1,22 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var DoublyLinkedList_1 = require("../DoublyLinkedList/DoublyLinkedList");
-var Queue = /** @class */ (function () {
-    function Queue(maxSize) {
-        if (maxSize === void 0) { maxSize = Infinity; }
+const DoublyLinkedList_1 = __importDefault(require("../DoublyLinkedList/DoublyLinkedList"));
+class Queue {
+    constructor(maxSize = Infinity) {
         this.queue = new DoublyLinkedList_1.default();
         this.maxSize = maxSize;
         this.size = 0;
     }
-    Queue.prototype.isEmpty = function () {
+    isEmpty() {
         return this.size === 0;
-    };
-    Queue.prototype.hasRoom = function () {
+    }
+    hasRoom() {
         return this.size < this.maxSize;
-    };
-    Queue.prototype.enqueue = function (data) {
+    }
+    enqueue(data) {
         if (this.hasRoom()) {
             this.queue.addToTail(data);
             this.size++;
@@ -22,17 +24,16 @@ var Queue = /** @class */ (function () {
         else {
             throw new Error("Queue is full!");
         }
-    };
-    Queue.prototype.dequeue = function () {
+    }
+    dequeue() {
         if (!this.isEmpty()) {
-            var data = this.queue.removeHead();
+            const data = this.queue.removeHead();
             this.size--;
             return data;
         }
         else {
             throw new Error("Queue is empty!");
         }
-    };
-    return Queue;
-}());
+    }
+}
 exports.default = Queue;

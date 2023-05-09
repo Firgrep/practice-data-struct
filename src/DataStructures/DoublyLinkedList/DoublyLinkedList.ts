@@ -66,7 +66,7 @@ class DoublyLinkedList {
         return removedTail.data;
     }
 
-    removeByData(data) {
+    removeByData(data: any) {
         let nodeToRemove;
         let currentNode = this.head;
         while (currentNode !== null) {
@@ -86,8 +86,8 @@ class DoublyLinkedList {
         } else {
             const nextNode = nodeToRemove.getNextNode();
             const previousNode = nodeToRemove.getPreviousNode();
-            nextNode.setPreviousNode(previousNode);
-            previousNode.setNextNode(nextNode);
+            nextNode?.setPreviousNode(previousNode);
+            previousNode?.setNextNode(nextNode);
         }
         return nodeToRemove;
     }
@@ -101,6 +101,27 @@ class DoublyLinkedList {
         }
         output += '<tail>';
         console.log(output);
+    }
+
+    findNodeIteratively(data: any) {
+        let currentNode = this.head;
+        while (currentNode !== null) {
+          if (currentNode.data === data) {
+            return currentNode;
+          }
+          currentNode = currentNode.next;
+        }
+        return null;
+      }
+    
+    findNodeRecursively(data: any, currentNode = this.head): Node | null {
+        if (currentNode === null) {
+            return null;
+        } else if (currentNode.data === data) {
+            return currentNode;
+        } else {
+            return this.findNodeRecursively(data, currentNode.next);
+        }
     }
 }
 

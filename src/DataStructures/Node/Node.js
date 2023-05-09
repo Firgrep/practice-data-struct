@@ -1,33 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node = /** @class */ (function () {
-    function Node(data) {
+class Node {
+    constructor(data) {
         this.data = data;
         this.next = null;
         this.previous = null;
     }
-    Node.prototype.setNextNode = function (node) {
+    setNextNode(node) {
         if (node instanceof Node || node === null) {
             this.next = node;
         }
         else {
             throw new Error('Next node must be a member of the Node class.');
         }
-    };
-    Node.prototype.getNextNode = function () {
+    }
+    getNextNode() {
         return this.next;
-    };
-    Node.prototype.setPreviousNode = function (node) {
+    }
+    setPreviousNode(node) {
         if (node instanceof Node || node === null) {
             this.previous = node;
         }
         else {
             throw new Error('Previous node must be a member of the Node class');
         }
-    };
-    Node.prototype.getPreviousNode = function () {
+    }
+    getPreviousNode() {
         return this.previous;
-    };
-    return Node;
-}());
+    }
+}
 exports.default = Node;
