@@ -1,9 +1,11 @@
 # Practice-data-struct
-Playground to Practice Data Structures in JavaScript
+Playground to practice Data Structures in TypeScript / JavaScript. The code is written in TS and then compiled using `tsc` into JS.
 
 ## Requirements
 
 `Node.js` installation required.
+
+`TypeScript`required. Use npm to install globally: `npm install -g typescript`. For more options, please see [TypeScript Downloads](https://www.typescriptlang.org/download)
 
 ## Setup
 
