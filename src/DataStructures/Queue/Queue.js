@@ -1,38 +1,38 @@
-import DoublyLinkedList from "../DoublyLinkedList/DoublyLinkedList.js";
-
-class Queue {
-    constructor(maxSize = Infinity) {
-        this.queue = new DoublyLinkedList();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var DoublyLinkedList_1 = require("../DoublyLinkedList/DoublyLinkedList");
+var Queue = /** @class */ (function () {
+    function Queue(maxSize) {
+        if (maxSize === void 0) { maxSize = Infinity; }
+        this.queue = new DoublyLinkedList_1.default();
         this.maxSize = maxSize;
         this.size = 0;
     }
-
-    isEmpty() {
+    Queue.prototype.isEmpty = function () {
         return this.size === 0;
-    }
-
-    hasRoom() {
+    };
+    Queue.prototype.hasRoom = function () {
         return this.size < this.maxSize;
-    }
-
-    enqueue(data) {
+    };
+    Queue.prototype.enqueue = function (data) {
         if (this.hasRoom()) {
             this.queue.addToTail(data);
             this.size++;
-        } else {
+        }
+        else {
             throw new Error("Queue is full!");
         }
-    }
-
-    dequeue() {
+    };
+    Queue.prototype.dequeue = function () {
         if (!this.isEmpty()) {
-            const data = this.queue.removeHead();
+            var data = this.queue.removeHead();
             this.size--;
             return data;
-        } else {
+        }
+        else {
             throw new Error("Queue is empty!");
         }
-    }
-}
-
-export default Queue;
+    };
+    return Queue;
+}());
+exports.default = Queue;

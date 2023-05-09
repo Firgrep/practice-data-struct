@@ -1,14 +1,14 @@
-import Node from '../Node/Node.js';
-
-class DoublyLinkedList {
-    constructor() {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Node_1 = require("../Node/Node");
+var DoublyLinkedList = /** @class */ (function () {
+    function DoublyLinkedList() {
         this.head = null;
         this.tail = null;
     }
-
-    addToHead(data) {
-        const newHead = new Node(data);
-        const currentHead = this.head;
+    DoublyLinkedList.prototype.addToHead = function (data) {
+        var newHead = new Node_1.default(data);
+        var currentHead = this.head;
         if (currentHead) {
             currentHead.setPreviousNode(newHead);
             newHead.setNextNode(currentHead);
@@ -17,11 +17,10 @@ class DoublyLinkedList {
         if (!this.tail) {
             this.tail = newHead;
         }
-    }
-
-    addToTail(data) {
-        const newTail = new Node(data);
-        const currentTail = this.tail;
+    };
+    DoublyLinkedList.prototype.addToTail = function (data) {
+        var newTail = new Node_1.default(data);
+        var currentTail = this.tail;
         if (currentTail) {
             currentTail.setNextNode(newTail);
             newTail.setPreviousNode(currentTail);
@@ -30,10 +29,9 @@ class DoublyLinkedList {
         if (!this.head) {
             this.head = newTail;
         }
-    }
-
-    removeHead() {
-        const removedHead = this.head;
+    };
+    DoublyLinkedList.prototype.removeHead = function () {
+        var removedHead = this.head;
         if (!removedHead) {
             return;
         }
@@ -45,10 +43,9 @@ class DoublyLinkedList {
             this.removeTail();
         }
         return removedHead.data;
-    }
-
-    removeTail() {
-        const removedTail = this.tail;
+    };
+    DoublyLinkedList.prototype.removeTail = function () {
+        var removedTail = this.tail;
         if (!removedTail) {
             return;
         }
@@ -60,44 +57,44 @@ class DoublyLinkedList {
             this.removeHead();
         }
         return removedTail.data;
-    }
-
-    removeByData(data) {
-        let nodeToRemove;
-        let currentNode = this.head;
+    };
+    DoublyLinkedList.prototype.removeByData = function (data) {
+        var nodeToRemove;
+        var currentNode = this.head;
         while (currentNode !== null) {
             if (currentNode.data === data) {
                 nodeToRemove = currentNode;
                 break;
             }
-        currentNode = currentNode.getNextNode();
+            currentNode = currentNode.getNextNode();
         }
         if (!nodeToRemove) {
             return null;
         }
         if (nodeToRemove === this.head) {
             this.removeHead();
-        } else if (nodeToRemove === this.tail) {
+        }
+        else if (nodeToRemove === this.tail) {
             this.removeTail();
-        } else {
-            const nextNode = nodeToRemove.getNextNode();
-            const previousNode = nodeToRemove.getPreviousNode();
+        }
+        else {
+            var nextNode = nodeToRemove.getNextNode();
+            var previousNode = nodeToRemove.getPreviousNode();
             nextNode.setPreviousNode(previousNode);
             previousNode.setNextNode(nextNode);
         }
         return nodeToRemove;
-    }
-
-    printList() {
-        let currentNode = this.head;
-        let output = '<head> ';
+    };
+    DoublyLinkedList.prototype.printList = function () {
+        var currentNode = this.head;
+        var output = '<head> ';
         while (currentNode !== null) {
             output += currentNode.data + ' ';
             currentNode = currentNode.getNextNode();
         }
         output += '<tail>';
         console.log(output);
-    }
-}
-
-export default DoublyLinkedList;
+    };
+    return DoublyLinkedList;
+}());
+exports.default = DoublyLinkedList;

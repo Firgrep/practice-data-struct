@@ -1,0 +1,28 @@
+import Queue from "../../DataStructures/Queue/Queue";
+
+
+const load = (flights: any[]) => {
+    const runway = new Queue(3);
+    flights.forEach(flight => {
+        try {
+            runway.enqueue(flight);
+            console.log(`${flight} taxi to runway.`);
+        } catch(e) {
+            console.log('Runway full!');
+        }
+        
+    });
+    return runway;
+};
+
+const clear = (runway: { isEmpty: () => any; dequeue: () => any; }) => {
+    while(!runway.isEmpty()) {
+        const cleared = runway.dequeue();
+        console.log('\nFlights wait...\n');
+        console.log(`${cleared}, is cleared for takeoff!\n${cleared} in air.`);
+    }
+
+    console.log('\nAll planes took off, runway clear.');
+};
+
+export { load, clear };

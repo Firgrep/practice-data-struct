@@ -1,27 +1,27 @@
-import Queue from "../../DataStructures/Queue/Queue.js";
-
-const load = flights => {
-    const runway = new Queue(3);
-    flights.forEach(flight => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.clear = exports.load = void 0;
+var Queue_1 = require("../../DataStructures/Queue/Queue");
+var load = function (flights) {
+    var runway = new Queue_1.default(3);
+    flights.forEach(function (flight) {
         try {
             runway.enqueue(flight);
-            console.log(`${flight} taxi to runway.`);
-        } catch(e) {
+            console.log("".concat(flight, " taxi to runway."));
+        }
+        catch (e) {
             console.log('Runway full!');
         }
-        
     });
     return runway;
 };
-
-const clear = runway => {
-    while(!runway.isEmpty()) {
-        const cleared = runway.dequeue();
+exports.load = load;
+var clear = function (runway) {
+    while (!runway.isEmpty()) {
+        var cleared = runway.dequeue();
         console.log('\nFlights wait...\n');
-        console.log(`${cleared}, is cleared for takeoff!\n${cleared} in air.`);
+        console.log("".concat(cleared, ", is cleared for takeoff!\n").concat(cleared, " in air."));
     }
-
     console.log('\nAll planes took off, runway clear.');
 };
-
-export { load, clear };
+exports.clear = clear;

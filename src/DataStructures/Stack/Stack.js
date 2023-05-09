@@ -1,46 +1,47 @@
-import DoublyLinkedList from '../DoublyLinkedList/DoublyLinkedList.js';
-
-class Stack {
-    constructor(maxSize = Infinity) {
-        this.stack = new DoublyLinkedList();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var DoublyLinkedList_1 = require("../DoublyLinkedList/DoublyLinkedList");
+var Stack = /** @class */ (function () {
+    function Stack(maxSize) {
+        if (maxSize === void 0) { maxSize = Infinity; }
+        this.stack = new DoublyLinkedList_1.default();
         this.maxSize = maxSize;
         this.size = 0;
     }
-
-    hasRoom() {
+    Stack.prototype.hasRoom = function () {
         return this.size < this.maxSize;
-    }
-    
-    isEmpty() {
+    };
+    Stack.prototype.isEmpty = function () {
         return this.size === 0;
-    }
-
-    push(value) {
+    };
+    Stack.prototype.push = function (value) {
         if (this.hasRoom()) {
             this.stack.addToHead(value);
             this.size++;
-        } else {
+        }
+        else {
             throw new Error('Stack is full');
         }
-    }
-
-    pop() {
+    };
+    Stack.prototype.pop = function () {
         if (!this.isEmpty()) {
-            const value = this.stack.removeHead();
+            var value = this.stack.removeHead();
             this.size--;
             return value;
-        } else {
+        }
+        else {
             throw new Error('Stack is empty');
         }
-    }
-
-    peek() {
+    };
+    Stack.prototype.peek = function () {
+        var _a;
         if (!this.isEmpty()) {
-            return this.stack.head.data;
-        } else {
+            return (_a = this.stack.head) === null || _a === void 0 ? void 0 : _a.data;
+        }
+        else {
             return null;
         }
-    }
-}
-
-export default Stack;
+    };
+    return Stack;
+}());
+exports.default = Stack;

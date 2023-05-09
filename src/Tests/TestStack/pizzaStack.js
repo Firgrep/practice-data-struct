@@ -1,33 +1,31 @@
-import Stack from "../../DataStructures/Stack/Stack.js";
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Stack_1 = require("../../DataStructures/Stack/Stack");
 // 1. Define an empty pizza stack with a maxSize of 6
-const pizzaStack = new Stack(6);
-
+var pizzaStack = new Stack_1.default(6);
 // 2. Add pizzas as they are ready until we fill up the stack
-for (let i = 0; i < 6; i++) {
-    pizzaStack.push(`Pizza #${i + 1}`)
+for (var i = 0; i < 6; i++) {
+    pizzaStack.push("Pizza #".concat(i + 1));
 }
-
 // 3. Try pushing another pizza to check for overflow
 try {
     pizzaStack.push("Pizza #7");
-} catch(e) {
+}
+catch (e) {
     console.log(e);
 }
-
 // 4. Peek at the pizza on the top of stack and log its value
 console.log("Taking a peek of the stack: ", pizzaStack.peek());
-
 // 5. Deliver all the pizzas from the top of the stack down
-const pizzaStackSize = pizzaStack.size
-for (let i = 0; i < pizzaStackSize; i++) {
-    const popped = pizzaStack.pop();
-    console.log(`${popped} delivered.`)
+var pizzaStackSize = pizzaStack.size;
+for (var i = 0; i < pizzaStackSize; i++) {
+    var popped = pizzaStack.pop();
+    console.log("".concat(popped, " delivered."));
 }
-
 // 6. Try popping another pizza to check for empty stack
 try {
     pizzaStack.pop();
-} catch(e) {
+}
+catch (e) {
     console.log(e);
 }

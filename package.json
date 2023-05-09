@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Data Structures Playground",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node src/index.js",
     "runway": "node src/Tests/TestQueue/testQueueRunway.js",
