@@ -5,7 +5,7 @@ Playground to practice Data Structures in TypeScript / JavaScript. The code is w
 
 `Node.js` installation required.
 
-`TypeScript`required. Use npm to install globally: `npm install -g typescript`. 
+`TypeScript` required. Use npm to install globally: `npm install -g typescript`. 
 
 For more options, please see [TypeScript Downloads](https://www.typescriptlang.org/download)
 
@@ -16,6 +16,8 @@ Fork and clone the repo `git clone https://github.com/Firgrep/practice-data-stru
 Enter `npm start` to run the script from src/index.js
 
 ## Tests
+
+`npm run menu` Tests the Trees (TreeNode) Data Structure
 
 `npm run bird` Tests the HashMap Data Structure
 

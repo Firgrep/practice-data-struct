@@ -10,6 +10,7 @@
     "pizza": "node src/Tests/TestStack/pizzaStack.js",
     "nyc": "node src/Tests/TestDoublyLinkedList/locationsNyc.js",
     "bird": "node src/Tests/TestHashMap/birdCensus.js",
+    "menu": "node src/Tests/TestTrees/menu.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
