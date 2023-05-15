@@ -1,3 +1,6 @@
+/**
+ * Minimal Heap that is a Binary Tree where the root node has the minimum key in the tree
+ */
 class MinHeap {
     heap: any[];
     size: number;
@@ -7,6 +10,10 @@ class MinHeap {
         this.size = 0;
     }
 
+    /**
+     * Removes the minimal value and heapifies the heap to preserve its order.
+     * @returns the minimal value
+     */
     popMin() {
         if (this.size === 0) {
             return null 
@@ -22,6 +29,10 @@ class MinHeap {
         return min;
     }
 
+    /**
+     * Adds value to the heap and then proceeds to bubble up the heap.
+     * @param value | Any data
+     */
     add(value: any) {
         // console.log(`.. adding ${value}`);
         this.heap.push(value);
@@ -30,6 +41,9 @@ class MinHeap {
         // console.log(`added ${value} to heap`, this.heap);
     }
 
+    /**
+     * Moves up in the heap and swaps items based on their value compared to its parent.
+     */
     bubbleUp() {
         let current = this.size;
         let swapCount = 0;
@@ -45,6 +59,9 @@ class MinHeap {
         }
     }
 
+    /**
+     * Moves down in the heap and swaps items based on their value compared to its children.
+     */
     heapify() {
         let current = 1;
         let leftChild = getLeft(current);
@@ -83,10 +100,22 @@ class MinHeap {
         }
     }
 
+    /**
+     * Helper function to check if index exists as below or equal to the size of the heap.
+     * @param index 
+     * @returns 
+     */
     exists(index: number) {
         return index <= this.size;
     }
 
+    /**
+     * Checks if possible swap conditions obtain between current, left Child and right Child.
+     * @param current 
+     * @param leftChild 
+     * @param rightChild 
+     * @returns true or false
+     */
     canSwap(current: number, leftChild: number, rightChild: number) {
         // Check that one of the possible swap conditions exists
         return (
@@ -95,6 +124,11 @@ class MinHeap {
         );
     }
 
+    /**
+     * Swaps two heap positions based on their index.
+     * @param a 
+     * @param b 
+     */
     swap(a: number, b: number) {
         [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
     }

@@ -1,10 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Minimal Heap that is a Binary Tree where the root node has the minimum key in the tree
+ */
 class MinHeap {
     constructor() {
         this.heap = [null];
         this.size = 0;
     }
+    /**
+     * Removes the minimal value and heapifies the heap to preserve its order.
+     * @returns the minimal value
+     */
     popMin() {
         if (this.size === 0) {
             return null;
@@ -19,6 +26,10 @@ class MinHeap {
         this.heapify();
         return min;
     }
+    /**
+     * Adds value to the heap and then proceeds to bubble up the heap.
+     * @param value | Any data
+     */
     add(value) {
         // console.log(`.. adding ${value}`);
         this.heap.push(value);
@@ -26,6 +37,9 @@ class MinHeap {
         this.bubbleUp();
         // console.log(`added ${value} to heap`, this.heap);
     }
+    /**
+     * Moves up in the heap and swaps items based on their value compared to its parent.
+     */
     bubbleUp() {
         let current = this.size;
         let swapCount = 0;
@@ -38,6 +52,9 @@ class MinHeap {
             console.log(`Heap of ${this.size} elements restored with ${swapCount} swaps`);
         }
     }
+    /**
+     * Moves down in the heap and swaps items based on their value compared to its children.
+     */
     heapify() {
         let current = 1;
         let leftChild = getLeft(current);
@@ -71,14 +88,31 @@ class MinHeap {
             console.log(`Heap of ${this.size} elements restored with ${swapCount} swaps`);
         }
     }
+    /**
+     * Helper function to check if index exists as below or equal to the size of the heap.
+     * @param index
+     * @returns
+     */
     exists(index) {
         return index <= this.size;
     }
+    /**
+     * Checks if possible swap conditions obtain between current, left Child and right Child.
+     * @param current
+     * @param leftChild
+     * @param rightChild
+     * @returns true or false
+     */
     canSwap(current, leftChild, rightChild) {
         // Check that one of the possible swap conditions exists
         return (this.exists(leftChild) && this.heap[current] > this.heap[leftChild]
             || this.exists(rightChild) && this.heap[current] > this.heap[rightChild]);
     }
+    /**
+     * Swaps two heap positions based on their index.
+     * @param a
+     * @param b
+     */
     swap(a, b) {
         [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
     }

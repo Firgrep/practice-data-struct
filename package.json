@@ -13,6 +13,7 @@
     "menu": "node src/Tests/TestTrees/menu.js",
     "tenthousand": "node src/Tests/TestMinHeap/tenThousand.js",
     "randomheap": "node src/Tests/TestMinHeap/randomHeap.js",
+    "train": "node src/Tests/TestGraph/trainNetwork.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
