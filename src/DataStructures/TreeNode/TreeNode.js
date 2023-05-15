@@ -60,8 +60,7 @@ class TreeNode {
     /**
      * Print method that logs to the console the tree and its children
      * by breadth traversal, or "flattens" the tree but alters the structure to
-     * show, in the form: root first, then first parent and its chidren, then
-     * second parent and its children, etc.
+     * show, in the form: root first, then all its children, then their respective children.
      */
     breadthFirstTraversal() {
         let queue = [this];

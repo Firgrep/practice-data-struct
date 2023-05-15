@@ -11,6 +11,8 @@
     "nyc": "node src/Tests/TestDoublyLinkedList/locationsNyc.js",
     "bird": "node src/Tests/TestHashMap/birdCensus.js",
     "menu": "node src/Tests/TestTrees/menu.js",
+    "tenthousand": "node src/Tests/TestMinHeap/tenThousand.js",
+    "randomheap": "node src/Tests/TestMinHeap/randomHeap.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
