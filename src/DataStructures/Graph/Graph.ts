@@ -46,7 +46,7 @@ class Graph {
      * @param vertexTwo | Reference to Vertex
      * @param weight | Number | Adds weight to the edge.
      */
-    addEdge(vertexOne: Vertex, vertexTwo: Vertex, weight: number) {
+    addEdge(vertexOne: Vertex, vertexTwo: Vertex, weight?: number) {
         const edgeWeight = this.isWeighted ? weight : null;
 
         if (vertexOne instanceof Vertex && vertexTwo instanceof Vertex) {

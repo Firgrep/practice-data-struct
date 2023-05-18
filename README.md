@@ -19,6 +19,8 @@ Enter `npm start` to run the script from src/index.js
 
 ## Tests
 
+`npm run traversegraph` Tests the Breadth First- and Depth First Traversal algorithms respectively on a sample graph. 
+
 `npm run quicklarge` Tests the Quicksort algorithm with a large dataset. 
 
 `npm run quickrandom` Tests the Quicksort algorithm with a small but randomized dataset. 
