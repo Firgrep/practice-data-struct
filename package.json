@@ -15,6 +15,9 @@
     "randomheap": "node src/Tests/TestMinHeap/randomHeap.js",
     "train": "node src/Tests/TestGraph/trainNetwork.js",
     "bubble": "node src/Tests/TestBubbleSort/testBubbleSort.js",
+    "merge": "node src/Tests/TestMergeSort/testMergeSort.js",
+    "quickrandom": "node src/Tests/TestQuicksort/quicksortRandom.js",
+    "quicklarge": "node src/Tests/TestQuicksort/quicksortLargeDataset.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

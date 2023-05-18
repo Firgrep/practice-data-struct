@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const swap_1 = __importDefault(require("./swap"));
+const swap_1 = __importDefault(require("../../util/swap"));
 const bubbleSort = (input) => {
     let swapCount = 0;
     let swapping = true;

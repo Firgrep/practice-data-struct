@@ -1,4 +1,4 @@
-import swap from "./swap";
+import swap from "../../util/swap";
 
 const bubbleSort = (input: any[]) => {
     let swapCount = 0
