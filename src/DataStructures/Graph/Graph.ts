@@ -77,6 +77,10 @@ class Graph {
         }
     }
 
+    getVertexByValue(value: any) {
+        return this.vertices.find(vertex => vertex.data === value);
+    }
+
     /**
      * Prints the graph to console/terminal.
      */
